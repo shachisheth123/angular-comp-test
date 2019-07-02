@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../course.service';
 import { ActivatedRoute } from '@angular/router';
 import { Courses, CourseChapter, ChapterModule } from '../course';
-import { User } from 'src/app/user/user';
-
 
 
 @Component({

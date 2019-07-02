@@ -52,21 +52,7 @@ describe(' Course Component', () => {
     });
 
 
-    it('should display all courses', inject([HttpTestingController, CourseService], (httpMock: HttpTestingController, service: CourseService) => {
-        // fixture.detectChanges();
-        // service.getCourseById(101).subscribe((data) => {
-
-
-        //         component.course = data;
-        //         const card = de.query(By.css('.course-card'));
-        //         const courseName = card.query(By.css('.course-name'));
-        //         expect(card).toBeTruthy();
-        //         expect(courseName.nativeElement.textContent).toBe(data[0].courseName);
-
-
-        // });  
-
-    }));
+    
 
 
     beforeEach(() => {
@@ -105,7 +91,19 @@ describe(' Course Component', () => {
             .toBe('contactNumber: 887949498 ,course: [],email: \"mah@gmail.com\",name: \"mah\",password: \"mahvash2\",userName: \"mah\"');
     });
 
+    // it('should display all courses', inject([HttpTestingController, CourseService], (httpMock: HttpTestingController, service: CourseService) => {
+    //     fixture.detectChanges();
+    //     service.getCourseById(101).subscribe((data) => {
+    //            this.component.course = data;
+    //             const card = de.query(By.css('.course-card'));
+    //             const courseName = card.query(By.css('.course-name'));
+    //             expect(card).toBeTruthy();
+    //             expect(courseName.nativeElement.textContent).toBe(data[0].courseName);
 
+
+    //     });  
+
+    // }));
 
 
 

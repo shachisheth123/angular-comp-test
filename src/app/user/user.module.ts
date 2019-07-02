@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { userRoute } from './user.route';
 import { UserService } from './user.service';
 import { LogoutComponent } from './logout.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler/src/core';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,11 @@ import { LogoutComponent } from './logout.component';
     ],
     providers:[
         UserService
-    ]
+    ],
+    schemas: [
+        CUSTOM_ELEMENTS_SCHEMA,
+        NO_ERRORS_SCHEMA
+      ]
 })
 export class UserModule {
 }

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CourseComponent } from './all-course/course.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatProgressBarModule } from '@angular/material';
@@ -12,7 +12,6 @@ import { ChaptersComponent } from './chapters/chapters.component';
 import { ModuleComponent, SafePipe } from './module/module.component';
 import { HighlightJsModule } from 'ngx-highlight-js';
 import { QuizComponent } from './quiz/quiz.component';
-
 @NgModule({
     declarations: [
         CourseComponent,
@@ -40,6 +39,7 @@ import { QuizComponent } from './quiz/quiz.component';
         ChaptersComponent,
         ModuleComponent
     ]
+
 })
 export class CourseModule {
 }

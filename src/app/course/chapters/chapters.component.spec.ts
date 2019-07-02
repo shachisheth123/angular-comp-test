@@ -9,10 +9,11 @@ import { HttpTestingController, HttpClientTestingModule } from '@angular/common/
 import { ChaptersComponent } from './chapters.component';
 import { CourseService } from '../course.service';
 import { ActivatedRoute } from '@angular/router';
+import { Course } from 'src/app/user/user';
 
 describe('Chapters Component', () => {
     let component: ChaptersComponent;
-    let fixure: ComponentFixture<ChaptersComponent>;
+    let fixture: ComponentFixture<ChaptersComponent>;
     let de: DebugElement;
     let el: HTMLElement;
     let courseService: CourseService;
@@ -34,9 +35,9 @@ describe('Chapters Component', () => {
                 CourseService
             ]
         }).compileComponents().then(() => {
-            fixure = TestBed.createComponent(ChaptersComponent);
-            component = fixure.componentInstance;
-            de = fixure.debugElement;
+            fixture = TestBed.createComponent(ChaptersComponent);
+            component = fixture.componentInstance;
+            de = fixture.debugElement;
             // tslint:disable-next-line:no-unused-expression
             component.ngOnInit;
             component = new ChaptersComponent(courseService, router);
@@ -44,7 +45,7 @@ describe('Chapters Component', () => {
     }));
 
     it('should create component', () => {
-      expect(component).toBeDefined();
+        expect(component).toBeDefined();
     });
 
 
@@ -89,5 +90,28 @@ describe('Chapters Component', () => {
             .toBe('contactNumber: 887949498 ,course: [],email: \"mah@gmail.com\",name: \"mah\",password: \"mahvash2\",userName: \"mah\"');
     });
 
+    it('should display module wise chapters', inject([HttpTestingController, CourseService], (httpMock: HttpTestingController, service: CourseService) => {
+        fixture.detectChanges();
+        service.getCourseById(101).subscribe((data) => {
+            //this.component.course = data;
+            const card = de.query(By.css('.mainbox'));
+            const courseChapter = card.query(By.css('.list-group'));
+            // const chapterName = card.query(By.css('.modulelist'));
+            const moduleName = card.query(By.css('.modulelist'));
+            expect(card).toHaveBeenCalled();
+            expect(card).toBeTruthy();
+            expect(card).toBeDefined();
+            expect(courseChapter.nativeElement.textContent).toBe(data[0].courseName);
+            expect(courseChapter.nativeElement.textContent).toBe(courseChapter[0].chapterName[0].chapterName);
+            for (let i = 0; i < this.chapters.length; i++) {
+
+                expect(moduleName.nativeElement.textContent).toBe(courseChapter[i].chapterModule);
+
+            }
+
+
+        });
+
+    }));
 
 });
